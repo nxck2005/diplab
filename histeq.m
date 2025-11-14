@@ -2,7 +2,7 @@ clc;
 clear all;
 close all;
 
-I = imread("Lenne.jpg");
+I = imread("sample2.jpg");
 if size(I, 3) == 3
   I = rgb2gray(I);
 end
@@ -31,6 +31,13 @@ for r=1:rows
   end
 end
 
+histeqcounts = zeros(1, L);
+for r=1:rows
+  for c=1:cols
+    val = ie(r,c);
+    histeqcounts(val + 1) = histeqcounts(val + 1) + 1;
+  end
+end
 figure;
 imshow(I);
 title("Original");
@@ -42,6 +49,13 @@ title("Equalised");
 figure;
 bar(0:255, hist_counts);
 title("Original Histogram");
+xlabel("Intensities");
+ylabel("Counts");
+xlim([0 255]);
+
+figure;
+bar(0:255, histeqcounts);
+title("Eq. Histogram");
 xlabel("Intensities");
 ylabel("Counts");
 xlim([0 255]);
