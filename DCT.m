@@ -1,7 +1,6 @@
 clc;
 close all;
 clear all;
-%pkg load image;
 % i -> double -> dct -> magnitude -> scale
 I = imread("sample2.jpg");
 if size(I, 3) == 3
