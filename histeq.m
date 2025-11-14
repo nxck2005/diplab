@@ -2,7 +2,7 @@ clc;
 clear all;
 close all;
 
-I = imread("sample2.jpg");
+I = imread("Lenne.jpg");
 if size(I, 3) == 3
   I = rgb2gray(I);
 end
